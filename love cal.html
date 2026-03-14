@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Love Calculator</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#e8f2f1;
+    text-align:center;
+    padding-top:80px;
+}
+
+h1{
+    font-size:40px;
+    color:#333;
+}
+
+input{
+    width:300px;
+    padding:12px;
+    margin:15px;
+    font-size:18px;
+    border:2px solid #ccc;
+    border-radius:8px;
+}
+
+button{
+    background:#e07a7a;
+    color:white;
+    border:none;
+    padding:15px 40px;
+    font-size:18px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#d35d5d;
+}
+
+#result{
+    margin-top:30px;
+    font-size:22px;
+    font-weight:bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>❤️ Love Calculator ❤️</h1>
+
+<br>
+
+<input type="text" id="name1" placeholder="Your Name"><br>
+<input type="text" id="name2" placeholder="Partner Name"><br>
+
+<button onclick="calculateLove()">Calculate Love</button>
+
+<p id="result"></p>
+
+<script>
+
+function calculateLove(){
+
+    var name1 = document.getElementById("name1").value;
+    var name2 = document.getElementById("name2").value;
+
+    if(name1=="" || name2==""){
+        document.getElementById("result").innerHTML="Please enter both names!";
+        return;
+    }
+
+    var love = (Math.random()*100).toFixed(2);
+    var percent = parseFloat(love);
+    var message = "";
+
+    if(percent < 30){
+        message = "Toxic relationship";
+    }
+    else if(percent >= 30 && percent < 50){
+        message = "Very mid";
+    }
+    else if(percent >= 50 && percent < 80){
+        message = "Could do better";
+    }
+    else if(percent >= 80 && percent < 90){
+        message = "Omg y'all are cute";
+    }
+    else{
+        message = "Marriage material";
+    }
+
+    document.getElementById("result").innerHTML =
+    name1 + " and " + name2 + " are " + love + "% in love ❤️<br>" + message;
+
+}
+
+</script>
+
+</body>
+</html>
